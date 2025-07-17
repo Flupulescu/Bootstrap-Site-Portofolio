@@ -20,11 +20,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    $(function () {
-      $('.popover').popover({
-        container: 'body'
-      })
-    })
+    document.addEventListener("DOMContentLoaded", function () {
+      const popoverTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="popover"]'
+      );
+      const popoverList = [...popoverTriggerList].map(
+        (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+      );
+    });
   </script>
 </head>
 
@@ -344,8 +347,8 @@
             I would say that I am a practical, considerate and responsible
             person that likes to study new things, like this web development
             course.
-            <button type="button" class="btn btn-lg btn-danger popover" data-toggle="popover" title="surpriza"
-              data-content="And here's some amazing content. It's very engaging. Right?">
+            <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover"
+              data-bs-title="Aici este titlul" data-bs-content="Aici este contentul">
               Apasa aici
             </button>
           </p>
